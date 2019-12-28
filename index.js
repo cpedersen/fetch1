@@ -16,17 +16,6 @@ function printResults(responseJson, num) {
   for (const key of keys) {
     console.log(responseJson[key]);
   }
-
-  /*for (let item in responseJson) {
-    console.log(`${responseJson.message}`);
-  }*/
-
-  /*$('.results-img').replaceWith(
-    `<img src="${responseJson.message}" class="results-img">`
-  )*/
-
-  //display the results section
-  $('.results').removeClass('hidden');
 }
 
 function watchForm() {
