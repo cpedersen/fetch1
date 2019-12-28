@@ -4,18 +4,21 @@ function getDogImages(num) {
   fetch(`https://dog.ceo/api/breeds/image/random/${num}`)
     .then(response => response.json())
     .then(responseJson => 
-      printResults(responseJson, num))
+      printResults(responseJson))
     .catch(error => alert('Something went wrong. Try again later.'));
 }
 
-function printResults(responseJson, num) {
-  //replace the existing image with the new one
+function printResults(responseJson) {
+  console.log("responseJson.message: " + responseJson.message);
+  const array_urls = Object.values(responseJson.message);
+  console.log("dogs = " + array_urls);
+  const num = array_urls.length;
   console.log(`${num} random dogs selected`);
-  
-  const keys = Object.keys(responseJson);
-  for (const key of keys) {
-    console.log(responseJson[key]);
+
+  for (let i=0; i < num; i++) {
+    console.log(`Dog: ${array_urls[i]}`)
   }
+
 }
 
 function watchForm() {
